@@ -1,8 +1,8 @@
 export interface EventsData {
   id?: number,
-  name: string,
-  place: string,
-  date: Date,
-  preinscription: string,
-  price: number
+  nombre: string,
+  lugar: string,
+  fecha: Date,
+  preinscripcion: string,
+  precio: number
 }

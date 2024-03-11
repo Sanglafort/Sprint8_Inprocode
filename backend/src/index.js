@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors'
 import eventosRoutes from './routes/eventos.routes.js'
 import indexRoutes from './routes/index.routes.js'
 
@@ -6,7 +7,12 @@ import {PORT} from '../config.js'
 
 const app = express()
 
+const corsOptions = {
+  "Access-Control-Allow-Origin": "*",
+}
+
 app.use(express.json())
+app.use(cors(corsOptions))
 
 app.use(indexRoutes)
 app.use(eventosRoutes)
