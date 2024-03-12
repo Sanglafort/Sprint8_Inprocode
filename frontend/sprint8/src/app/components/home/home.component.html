@@ -19,7 +19,7 @@ $('[data-toggle="tooltip"]').tooltip();
                       <tr>
                           <th>#</th>
                           <th>Nombre del evento</th>
-                          <th>Lugar</th>
+                          <th>Ubicación</th>
                           <th>Fecha</th>
                           <th>Prescripción</th>
                           <th>Precio</th>
@@ -35,20 +35,28 @@ $('[data-toggle="tooltip"]').tooltip();
                         <td>{{ event.preinscripcion }}</td>
                         <td>{{ event.precio }} €</td>
                         <td>
-                            <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                            <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                          <div class="btn-group">
+                            <button [routerLink]="[event.id, 'edit']">
+                              Editar
+                            </button>
+                            <button (click)="deleteEvent(event)">
+                              Eliminar
+                            </button>
+
+                          </div>
+                           <!-- <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>-->
                         </td>
                       </tr>
                     }
 
-
-
-
                   </tbody>
               </table>
-
+              <div>
+                <button class="btn btn-success" routerLink="/modal">Nuevo evento</button>
+              </div>
           </div>
+
       </div>
   </div>
 </body>

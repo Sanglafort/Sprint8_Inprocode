@@ -9,7 +9,7 @@ router.get('/eventos/:id', getEventById)
 
 router.post('/eventos', createEvent)
 
-router.patch('/eventos/:id', updateEvent)
+router.put('/eventos/:id', updateEvent)
 
 router.delete('/eventos/:id', deleteEvent)
 

@@ -1,1 +1,81 @@
-<p>modal works!</p>
+
+<div class="row row-cols-3 justify-content-center">
+  @if(modalForm) {
+    <form [formGroup]="modalForm" (ngSubmit)="save()">
+
+      <h2 class="m-5">
+        @if(event) {
+          Editar evento
+        } @else{
+          Nuevo evento
+        }
+      </h2>
+
+      <div class="mb-3">
+        <label for="nombre">Nombre</label>
+        <input id="nombre"
+        type="text"
+        placeholder="Nombre del evento"
+        class="form-control"
+        formControlName="nombre">
+      </div>
+
+      <div class="mb-3">
+        <label for="lugar">Ubicación</label>
+        <input id="lugar"
+        type="text"
+        placeholder="Ubicación"
+        class="form-control"
+        formControlName="lugar">
+      </div>
+
+      <div class="mb-3">
+        <label for="fecha">Fecha</label>
+        <input id="fecha"
+        type="date"
+        placeholder="Fecha"
+        class="form-control"
+        formControlName="fecha">
+      </div>
+
+      <div class="mb-3">
+        <label for="preinscripcion">Preinscripción</label>
+        <input id="preinscripcion"
+        type="text"
+        placeholder="Necesita preinscripción?"
+        class="form-control"
+        formControlName="preinscripcion">
+      </div>
+
+      <div class="mb-3">
+        <label for="precio">Precio</label>
+        <input id="precio"
+        type="text"
+        placeholder="Precio"
+        class="form-control"
+        formControlName="precio">
+      </div>
+
+      <div class="text-end">
+        <button type="button" class="btn btn-light" routerLink="/">
+          Cancelar
+        </button>
+        <button class="btn btn-success ms-2">
+          @if(event) {
+            Actualizar evento
+          } @else{
+            Crear evento
+          }
+        </button>
+
+      </div>
+
+    </form>
+
+
+  }
+
+
+
+</div>
+

@@ -2,11 +2,13 @@ import { Component, OnInit, inject } from '@angular/core';
 import { EventsData } from '../../interfaces/events_data';
 import { DatabaseService } from '../../services/database.service';
 import { DatePipe } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import ModalComponent from '../modal/modal.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, RouterModule, ModalComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -18,19 +20,23 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.loadAll();
+
+  }
+
+  loadAll(){
     this.databaseService.getEvents()
     .subscribe((events: EventsData[]) => {
       this.eventsResults = events
       console.log(events)
     })
-
   }
 
-
-
-  //public showModal: boolean = false
-  //public modalMode: "create" | "update" = "create"
-  //public selectedEvent: EventsData | null = null
-  //public event: any;
+  deleteEvent(event: EventsData) {
+    this.databaseService.deleteEvent(event.id)
+    .subscribe( () => {
+      this.loadAll()
+    })
+  }
 
 }

@@ -24,7 +24,7 @@ export class DatabaseService {
   }
 
   getEventById(event: any):Observable<any> {
-    const id = event.id
+    const id = event
     return this.http.get<any>(`${apiSql}/${id}`, httpOptions)
   }
 
@@ -38,7 +38,7 @@ export class DatabaseService {
   }
 
   updateEvent(id: any, event: any): Observable<any> {
-    return this.http.patch<any>(`${apiSql}/${id}`, event, httpOptions)
+    return this.http.put<any>(`${apiSql}/${id}`, event, httpOptions)
   }
 
 }
