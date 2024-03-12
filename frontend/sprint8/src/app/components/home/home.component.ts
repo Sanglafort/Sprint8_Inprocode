@@ -26,13 +26,14 @@ export class HomeComponent implements OnInit {
 
   loadAll(){
     this.databaseService.getEvents()
-    .subscribe((events: EventsData[]) => {
+    .subscribe(events => {
       this.eventsResults = events
       console.log(events)
     })
   }
 
   deleteEvent(event: EventsData) {
+    console.log('en deleteEvent el ID es:', event.id)
     this.databaseService.deleteEvent(event.id)
     .subscribe( () => {
       this.loadAll()

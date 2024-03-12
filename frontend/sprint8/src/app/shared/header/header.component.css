@@ -1,0 +1,12 @@
+nav {
+  background-color: #ae91f3;
+}
+
+button {
+  border-radius: 10px;
+  border-width: 0;
+  background-color: #7c4bf2;
+  color: white;
+  font-size:larger;
+  padding: 10px 12px;
+}

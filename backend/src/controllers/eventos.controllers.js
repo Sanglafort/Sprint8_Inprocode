@@ -62,6 +62,9 @@ export const deleteEvent = async (req, res) => {
     try {
         const [result] = await pool.query('DELETE FROM eventos_felices WHERE id = ?', [req.params.id])
 
+        console.log('id', req.params.id)
+        console.log('resuñtado', result)
+
         if (result.affectedRows <= 0) return res.status(404).json({
             code:-7,
             message: 'Evento no encontrado'
@@ -87,7 +90,7 @@ export const updateEvent = async (req, res) => {
     try {
         const [result] = await pool.query('UPDATE eventos_felices SET nombre = IFNULL(?, nombre), lugar = IFNULL(?, lugar), fecha = IFNULL(?, fecha), preinscripcion = IFNULL(?, preinscripcion), precio = IFNULL(?, precio) WHERE id = ?', [nombre, lugar, fecha, preinscripcion, precio, id])
 
-        console.log(result)
+       // console.log(result)
 
         if (result.affectedRows === 0) return res.status(404).json({
             code: -7,
@@ -100,5 +103,6 @@ export const updateEvent = async (req, res) => {
             message: 'Algo falló al actualizar el evento.'
         })
     }
+
 }
 
