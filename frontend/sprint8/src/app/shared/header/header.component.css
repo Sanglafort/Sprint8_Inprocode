@@ -10,3 +10,8 @@ button {
   font-size:larger;
   padding: 10px 12px;
 }
+
+i {
+  padding-right: 10px;
+  font-size: 1.5rem;
+}

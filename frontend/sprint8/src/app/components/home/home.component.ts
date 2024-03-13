@@ -32,12 +32,15 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  deleteEvent(event: EventsData) {
-    console.log('en deleteEvent el ID es:', event.id)
-    this.databaseService.deleteEvent(event.id)
-    .subscribe( () => {
-      this.loadAll()
+  deleteEvent(event: any): void {
+    console.log('en deleteEvent del HomeComponent el ID es:', event.id)
+    this.databaseService.deleteEvent(event)
+    .subscribe({
+      next: () => {
+        this.loadAll()
+      }
     })
+
   }
 
 }

@@ -24,6 +24,7 @@ export default class ModalComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
+    console.log('el id del OnInit del modal es: ', id)
 
     if(id) {
       this.databaseService.getEventById(parseInt(id))

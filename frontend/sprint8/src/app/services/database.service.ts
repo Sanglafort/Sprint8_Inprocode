@@ -32,10 +32,9 @@ export class DatabaseService {
     return this.http.post<any>(`${apiSql}`, event, httpOptions)
   }
 
-  deleteEvent(id: number | undefined): Observable<void> {
-    console.log('en el deleteEvent del service el ID es:', id)
-
-    return this.http.delete<any>(`${apiSql}/${id}`,httpOptions)
+  deleteEvent(event:any): Observable<any> {
+    const id = event.id
+    return this.http.delete<any>(`${apiSql}/${id}`, httpOptions)
   }
 
   updateEvent(id: any, event: any): Observable<any> {
